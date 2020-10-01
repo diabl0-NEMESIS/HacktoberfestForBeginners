@@ -1,0 +1,52 @@
+//print the largest sum among all the hourglasses in the array.
+//solution
+
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.regex.*;
+
+public class Solution {
+
+
+
+public static int hourglassSum(int[][] ar ) {
+    int sum,maxSum = -36985247;;
+for(int i = 0; i < 6; i++){
+        for(int j = 0; j < 6; j++){
+            if(j+2 < 6 && i+2 < 6 ){
+
+                sum = ar[i][j] + ar[i][j+1] + ar[i][j+2] + ar[i+1][j+1] + ar[i+2][j]+ ar[i+2][j+1] + ar[i+2][j+2];
+                if(sum > maxSum)
+                maxSum = sum;
+            }
+        }
+    }
+    return maxSum;
+
+}
+
+  
+
+    public static void main(String[] args) {
+        int[][] arr = new int[6][6];
+       Scanner sc = new Scanner(System.in);
+        
+        for(int i=0;i<6;i++)
+        {
+           for(int j=0;j<6;j++)
+           {
+
+               arr[i][j]= sc.nextInt();
+           }
+
+        }
+
+      int  p = hourglassSum(arr);
+
+        System.out.println(p);
+    }
+}
